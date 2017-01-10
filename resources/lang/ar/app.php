@@ -1,0 +1,20 @@
+<?php
+
+return [
+
+    'appName' => 'الوجبة السريعة',
+    'home' => 'الصفحة الرئيسية',
+    'dashboard' => 'الصفحة الرئيسية',
+	'orders' => 'طلبات',
+	'foodClasses' => 'أصناف الأطعمة',
+	'foods' => 'الأطعمة',
+	'statistics' => 'الأحصائيات',
+	'reports' => 'التقارير',
+	'notification' => 'الأشعارات',
+	'name' => 'الاسم',
+	'image' => 'الصورة',
+	'add' => 'إضافة صف جديد',
+	'createNewClass' => 'إنشاء صنف جديد',
+	'createNewClassTitle' => 'إنشاء صنف جديد',
+	'classInfo' => 'معلومات-الصف',
+];
