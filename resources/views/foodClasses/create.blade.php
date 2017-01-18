@@ -5,7 +5,8 @@
 @stop
 
 @section('style')
-
+	<link rel="stylesheet" href="{{ asset('css/uniform.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/select2.css') }}" />
 @stop
 
 @section('content')
@@ -27,44 +28,42 @@
 			        </div>
 			        <div class="widget-content nopadding">
 			          <form action="#" method="get" class="form-horizontal">
-			            <div class="control-group">
-			              <label class="control-label">First Name :</label>
+			          	<div class="control-group">
+			          		<div class="image-container">
+			          			<img src="{{ asset('img/imagePlaceholder.png') }}" class="image-uploaded img-responsive" alt="">
+			          			<div id="overlay">
+							    	<a class="lightbox_trigger" href="{{ asset('img/imagePlaceholder.png') }}">
+							    		<span id="zoom"><i class="icon-search"></i></span>
+							    	</a>
+								</div>
+			            	</div>
+			            </div>
+			          	<div class="control-group">
+			              <label class="control-label">{{ trans('foodType.uploadImage') }}</label>
 			              <div class="controls">
-			                <input type="text" class="span11" placeholder="First name" />
+			                <input type="file" />
 			              </div>
 			            </div>
 			            <div class="control-group">
-			              <label class="control-label">Last Name :</label>
+			              <label class="control-label">{{ trans('foodType.arabicName') }} :</label>
 			              <div class="controls">
-			                <input type="text" class="span11" placeholder="Last name" />
+			                <input type="text" class="span11" placeholder="Arabic Name" />
 			              </div>
 			            </div>
 			            <div class="control-group">
-			              <label class="control-label">Password input</label>
+			              <label class="control-label">{{ trans('foodType.englishName') }} :</label>
 			              <div class="controls">
-			                <input type="password"  class="span11" placeholder="Enter Password"  />
+			                <input type="text" class="span11" placeholder="English Name" />
 			              </div>
 			            </div>
 			            <div class="control-group">
-			              <label class="control-label">Company info :</label>
+			              <label class="control-label">{{ trans('foodType.turkishName') }} :</label>
 			              <div class="controls">
-			                <input type="text" class="span11" placeholder="Company name" />
-			              </div>
-			            </div>
-			            <div class="control-group">
-			              <label class="control-label">Description field:</label>
-			              <div class="controls">
-			                <input type="text" class="span11" />
-			                <span class="help-block">Description field</span> </div>
-			            </div>
-			            <div class="control-group">
-			              <label class="control-label">Message</label>
-			              <div class="controls">
-			                <textarea class="span11" ></textarea>
+			                <input type="text" class="span11" placeholder="Turkish Name" />
 			              </div>
 			            </div>
 			            <div class="form-actions">
-			              <button type="submit" class="btn btn-success">Save</button>
+			              <button type="submit" class="btn btn-success">{{ trans('foodType.add') }}</button>
 			            </div>
 			          </form>
 			        </div>
@@ -75,6 +74,7 @@
 @stop
 
 @section('script')
+	<script src="{{ asset('js/create-food.js') }}"></script>  
 	<script type="text/javascript">
 		$('ul.sidebar li:nth-child(3)').addClass('active');
 	</script>

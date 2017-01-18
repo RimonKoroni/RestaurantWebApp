@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="{{ asset('css/matrix-media.css') }}" />
 	<link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/jquery.gritter.css') }}" />
+	<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800'/>
 
 	@yield('style')
