@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Illuminate\Support\Facades\File;
+
+use App\Http\Requests\FoodTypeRequest;
+
 use App\FoodType;
 
 class FoodClassController extends Controller
@@ -38,9 +42,18 @@ class FoodClassController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FoodTypeRequest $request)
     {
-        //
+        $imageName = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
+        $request->foodTypeImage->move(public_path('uploadedImages'), $imageName);
+        $foodType = new FoodType;
+        $foodType->arabic_name = $request->arabicName;
+        $foodType->english_name = $request->englishName;
+        $foodType->turkish_name = $request->turkishName;
+        $foodType->image = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
+        $foodType->save();
+
+        return redirect()->route('foodClasses.index');
     }
 
     /**
@@ -85,6 +98,11 @@ class FoodClassController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $foodType = FoodType::find($id);
+        $image = $foodType->image;
+        FoodType::destroy($id);
+        
+        File::delete('uploadedImages/' .$image);
+        return redirect()->route('foodClasses.index');
     }
 }

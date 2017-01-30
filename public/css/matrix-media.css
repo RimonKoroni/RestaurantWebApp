@@ -23,7 +23,6 @@ body {
 
 #sidebar > ul > li > a > .label {
 	background-color:#F66;
-	font-size: 100%;
 }
 #sidebar > ul > li > a:hover {
 	background-color: #27a9e3; color:#fff;

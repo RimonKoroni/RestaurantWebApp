@@ -258,7 +258,7 @@ div.uploader {
 
 div.uploader span.action {
   background-position: right -409px;
-  height: 30px;
+  height: 24px;
   line-height: 24px;
 }
 
@@ -422,7 +422,7 @@ div.uploader span.action {
 
 div.uploader span.filename {
   color: #777;
-  width: 103px;
+  width: 82px;
   border-right: solid 1px #bbb;
   font-size: 11px;
 }

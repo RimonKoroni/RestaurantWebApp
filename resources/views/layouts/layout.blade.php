@@ -4,7 +4,6 @@
 	<title>@yield('title')</title>
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.min.css') }}" />
-	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/fullcalendar.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/matrix-style.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/matrix-media.css') }}" />

@@ -10,6 +10,9 @@ class FoodType extends Model
     
     public $timestamps = false;
 
+    protected $fillable = [
+        'arabic_name', 'english_name', 'turkish_name',
+    ];
 
     public function getName($local)
     {

@@ -9,7 +9,7 @@ html, body{height:100%}
 
 body {
 	overflow-x: hidden;
-	margin-top: -20px; font-family: 'Open Sans', sans-serif; font-size:12px; color:#666;
+	margin-top: -10px; font-family: 'Open Sans', sans-serif; font-size:12px; color:#666;
 }
 a{color:#666;}
 a:hover, a:focus {
@@ -30,10 +30,7 @@ hr{ border-top-color:#dadada;}
 .carousel{ margin-bottom:0px;}
 .fl { float:left}
 .fr {float:right}
-.label-important, .badge-important{ 
-	background:#f74d4d;
-	font-size: 100%;
-}
+.label-important, .badge-important{ background:#f74d4d;}
 
 /*Metro Background color class*/
 .bg_lb{ background:#27a9e3;}
@@ -242,7 +239,6 @@ hr{ border-top-color:#dadada;}
 #breadcrumb {
 	background-color: #fff;
 	border-bottom: 1px solid #e3ebed;
-	line-height: 20px;
 }
 #breadcrumb a {
 	padding: 8px 20px 8px 10px;
@@ -969,10 +965,15 @@ span.icon .checker {
 .dataTables_paginate {
 	line-height: 16px;
 	text-align: right;
-	margin-top: 0px;
+	margin-top: 5px;
 	margin-right: 10px;
 }
-
+.dataTables_paginate {
+	line-height: 16px;
+	text-align: right;
+	margin-top: 5px;
+	margin-right: 10px;
+}
 .dataTables_paginate .ui-button, .pagination.alternate li a {
 	font-size: 12px;
 	padding: 4px 10px !important;
@@ -1029,11 +1030,10 @@ div.dataTables_wrapper .ui-widget-header {
 }
 .dataTables_filter input {
 	margin-bottom: 0;
-	height: 30px;
 }
 .table th {
 	height: auto;
-	font-size: 14px;
+	font-size: 10px;
 	padding: 5px 10px 2px;
 	border-bottom: 0;
 	text-align: center;
@@ -1159,6 +1159,7 @@ form {
 	left:0;
 	width:100%;
 	height:100%;
+	background:url(overlay.png) repeat #000;
 	text-align:center;
 	z-index:9999;
 }
@@ -1185,7 +1186,7 @@ form {
 	top:0px;
 	width:100%;
 	height:100%;
-	background:url(../img/overlay.png) repeat #000;
+	background:url(overlay.png) repeat #000;
 	text-align:center;
 	z-index:21;
 }

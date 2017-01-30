@@ -17,4 +17,9 @@ return [
 	'createNewClass' => 'إنشاء صنف جديد',
 	'createNewClassTitle' => 'إنشاء صنف جديد',
 	'classInfo' => 'معلومات-الصف',
+	'edit' => 'تعديل',
+	'delete' => 'حذف',
+	'details' => 'تفاصيل',
+	'close' => 'إغلاق',
+	'deleteConfirmationTitle' => 'تأكيد عملية الحذف'
 ];

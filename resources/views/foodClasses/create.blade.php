@@ -19,7 +19,7 @@
 	<!--End-breadcrumbs-->
 
 	<div class="container-fluid">
-	  <hr>
+	  	<hr>
 	  	<div class="row-fluid">
 	    	<div class="span8">
 	      		<div class="widget-box">
@@ -27,45 +27,65 @@
 			          <h5>{{ trans('app.classInfo') }}</h5>
 			        </div>
 			        <div class="widget-content nopadding">
-			          <form action="#" method="get" class="form-horizontal">
-			          	<div class="control-group">
-			          		<div class="image-container">
-			          			<img src="{{ asset('img/imagePlaceholder.png') }}" class="image-uploaded img-responsive" alt="">
-			          			<div id="overlay">
-							    	<a class="lightbox_trigger" href="{{ asset('img/imagePlaceholder.png') }}">
-							    		<span id="zoom"><i class="icon-search"></i></span>
-							    	</a>
-								</div>
-			            	</div>
-			            </div>
-			          	<div class="control-group">
-			              <label class="control-label">{{ trans('foodType.uploadImage') }}</label>
-			              <div class="controls">
-			                <input type="file" />
-			              </div>
-			            </div>
-			            <div class="control-group">
-			              <label class="control-label">{{ trans('foodType.arabicName') }} :</label>
-			              <div class="controls">
-			                <input type="text" class="span11" placeholder="Arabic Name" />
-			              </div>
-			            </div>
-			            <div class="control-group">
-			              <label class="control-label">{{ trans('foodType.englishName') }} :</label>
-			              <div class="controls">
-			                <input type="text" class="span11" placeholder="English Name" />
-			              </div>
-			            </div>
-			            <div class="control-group">
-			              <label class="control-label">{{ trans('foodType.turkishName') }} :</label>
-			              <div class="controls">
-			                <input type="text" class="span11" placeholder="Turkish Name" />
-			              </div>
-			            </div>
-			            <div class="form-actions">
-			              <button type="submit" class="btn btn-success">{{ trans('foodType.add') }}</button>
-			            </div>
-			          </form>
+			        	{!! Form::open(['route' => 'foodClasses.store', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) !!}
+			        		<div class="control-group">
+				          		<div class="image-container">
+				          			<img id="previewImg" src="{{ asset('img/imagePlaceholder.png') }}" class="image-uploaded img-responsive" alt="">
+				          			<div class="overlay">
+								    	<a id="zoom-previewImg" class="lightbox_trigger" href="{{ asset('img/imagePlaceholder.png') }}">
+								    		<span id="zoom"><i class="icon-search"></i></span>
+								    	</a>
+									</div>
+				            	</div>
+				            </div>
+				            <div class="control-group {{ $errors->has('foodTypeImage') ? 'error' : ''}}">
+				            	{!! Form::label('foodTypeImage', trans('foodType.uploadImage'), ['class' => 'control-label']) !!}
+					            <div class="controls">
+					            	{!! Form::file('foodTypeImage', []) !!}
+					            	<span for='foodTypeImage' class='help-inline'>
+				              			@if ($errors->has('foodTypeImage'))
+				              				{{$errors->first('foodTypeImage')}}
+				              			@endif
+				              		</span>
+					          	</div>
+				            </div>
+				            <div class="control-group {{ $errors->has('arabicName') ? 'error' : ''}}">
+				            	{!! Form::label('arabicName', trans('foodType.arabicName') . ' :', ['class' => 'control-label']) !!}
+				              	<div class="controls">
+				              		{!! Form::text('arabicName', "", ['class' => 'span6', 'placeholder' => trans('foodType.arabicName')]) !!}
+				              		<span for='arabicName' class='help-inline'>
+				              			@if ($errors->has('arabicName'))
+				              				{{$errors->first('arabicName')}}
+				              			@endif
+				              		</span>
+				              	</div>
+				            </div>
+				            <div class="control-group {{ $errors->has('englishName') ? 'error' : ''}}">
+				              	{!! Form::label('englishName', trans('foodType.englishName') . ' :', ['class' => 'control-label']) !!}
+				              	<div class="controls">
+				              		{!! Form::text('englishName', "", ['class' => 'span6', 'placeholder' => trans('foodType.englishName')]) !!}
+				              		<span for='englishName' class='help-inline'>
+				              			@if ($errors->has('englishName'))
+				              				{{$errors->first('englishName')}}
+				              			@endif
+				              		</span>
+				              	</div>
+				            </div>
+				            <div class="control-group {{ $errors->has('turkishName') ? 'error' : ''}}">
+				              	{!! Form::label('turkishName', trans('foodType.turkishName') . ' :', ['class' => 'control-label']) !!}
+				              	<div class="controls">
+				              		{!! Form::text('turkishName', "", ['class' => 'span6', 'placeholder' => trans('foodType.turkishName')]) !!}
+				              		<span for='turkishName' class='help-inline'>
+				              			@if ($errors->has('turkishName'))
+				              				{{$errors->first('turkishName')}}
+				              			@endif
+				              		</span>
+				              	</div>
+				            </div>
+				            <div class="form-actions">
+				            	{!! Form::submit(trans('foodType.add'), ['class' => 'btn btn-success']) !!}
+				            </div>
+			        	{!! Form::close() !!}
 			        </div>
 		        </div>
 	    	</div>

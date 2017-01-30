@@ -18,4 +18,9 @@ return [
 	'createNewClass' => 'Create new class',
 	'createNewClassTitle' => 'Create New Class',
 	'classInfo' => 'Class-info',
+	'edit' => 'Edit',
+	'delete' => 'Delete',
+	'details' => 'Details',
+	'close' => 'Close',
+	'deleteConfirmationTitle' => 'Delete Confirmation',
 ];

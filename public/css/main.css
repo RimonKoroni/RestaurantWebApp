@@ -20,13 +20,19 @@
 	left: 0;
 }
 
-#overlay { 
+.imageColumn {
+	width: 30%;
+	height: 40px;
+
+}
+
+.overlay { 
 	width: 100%;
 	height: 100%;
 	opacity:0; 
 	background:rgba(0,0,0,.75);
     text-align:center;
-    padding:45px 0 66px 0;
+    padding: 10px 10px 10px 10px;
     opacity:0;
     -webkit-transition: opacity .25s ease;
     -moz-transition: opacity .25s ease;
@@ -35,13 +41,17 @@
 	left: 0;
 }
 
-.image-container:hover #overlay {
+.image-container:hover .overlay {
     opacity:1;
 }
 
 #zoom  {  
-	font-family:Helvetica;
-    font-weight:900;
+	
     color:rgba(255,255,255,.85);
-    font-size:96px;
+    font-size:300%;
+}
+
+.table-with-image tbody tr td {
+	text-align: center;
+	vertical-align: middle;
 }
