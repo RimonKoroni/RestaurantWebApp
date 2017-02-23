@@ -14,6 +14,17 @@ use App\FoodType;
 
 class FoodClassController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -44,13 +55,16 @@ class FoodClassController extends Controller
      */
     public function store(FoodTypeRequest $request)
     {
-        $imageName = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
-        $request->foodTypeImage->move(public_path('uploadedImages'), $imageName);
         $foodType = new FoodType;
+        if ($request->foodTypeImage != null) {
+            $imageName = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
+            $request->foodTypeImage->move(public_path('uploadedImages'), $imageName);
+            $foodType->image = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
+        }
+        
         $foodType->arabic_name = $request->arabicName;
         $foodType->english_name = $request->englishName;
         $foodType->turkish_name = $request->turkishName;
-        $foodType->image = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
         $foodType->save();
 
         return redirect()->route('foodClasses.index');
@@ -64,7 +78,8 @@ class FoodClassController extends Controller
      */
     public function show($id)
     {
-        //
+        $type = FoodType::find($id);
+        return view('foodClasses.details', ['type' => $type]);
     }
 
     /**
@@ -75,7 +90,8 @@ class FoodClassController extends Controller
      */
     public function edit($id)
     {
-        //
+        $type = FoodType::find($id);
+        return view('foodClasses.edit', ['type' => $type]);
     }
 
     /**
@@ -85,9 +101,21 @@ class FoodClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FoodTypeRequest $request, $id)
     {
-        //
+        $foodType = FoodType::find($id);
+        if ($request->foodTypeImage != null) {
+            $imageName = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
+            $request->foodTypeImage->move(public_path('uploadedImages'), $imageName);
+            $foodType->image = time().'.'.$request->foodTypeImage->getClientOriginalExtension();
+        }
+        
+        $foodType->arabic_name = $request->arabicName;
+        $foodType->english_name = $request->englishName;
+        $foodType->turkish_name = $request->turkishName;
+        $foodType->save();
+
+        return redirect()->route('foodClasses.index');
     }
 
     /**

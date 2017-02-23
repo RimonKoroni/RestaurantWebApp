@@ -11,14 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('home', function() {
-    return view('pages.home'); 
-});
-
 Route::get('orders', function() {
     return view('pages.orders'); 
 });
@@ -41,3 +33,9 @@ Route::get('changeLang/{lang}', function($lang) {
 
 
 Route::resource('foodClasses', 'FoodClassController');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/', 'HomeController@index');

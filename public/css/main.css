@@ -32,7 +32,7 @@
 	opacity:0; 
 	background:rgba(0,0,0,.75);
     text-align:center;
-    padding: 10px 10px 10px 10px;
+    /*padding: 10px 10px 10px 10px;*/
     opacity:0;
     -webkit-transition: opacity .25s ease;
     -moz-transition: opacity .25s ease;
@@ -48,10 +48,18 @@
 #zoom  {  
 	
     color:rgba(255,255,255,.85);
-    font-size:300%;
+    font-size:50px;
+    width: 100px; 
+    left: 50%; 
+    transform: translate(-50%, 0) ; 
+    position: absolute;
 }
 
 .table-with-image tbody tr td {
 	text-align: center;
 	vertical-align: middle;
+}
+
+.lightbox_trigger {
+	display: inline-block;
 }

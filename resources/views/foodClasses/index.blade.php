@@ -43,19 +43,19 @@
 						<tr class="gradeX">
 			              <td class="imageColumn">
 			              	<div class="image-container">
-			          			<img id="previewImg" src="{{ asset('uploadedImages/' . $type->image) }}" class="image-uploaded img-responsive" alt="">
+			          			<img id="previewImg" src="{{ $type->image != null ? asset('uploadedImages/' . $type->image) : asset('img/imagePlaceholder.png')}}" class="image-uploaded img-responsive" alt="">
 			          			<div class="overlay">
-							    	<a id="zoom-previewImg" class="lightbox_trigger" href="{{ asset('uploadedImages/' . $type->image) }}">
+							    	<div id="zoom-previewImg" class="lightbox_trigger btn-link" href="{{ $type->image != null ? asset('uploadedImages/' . $type->image) : asset('img/imagePlaceholder.png')}}">
 							    		<span id="zoom"><i class="icon-search"></i></span>
-							    	</a>
+							    	</div>
 								</div>
 			            	</div>
 			              </td>
 			              <td><p>{{ $type->getName(App::getLocale()) }}</p></td>
 			              <td>
-			              	<a class="btn btn-primary icon icon-pencil tip-bottom" title="{{ trans('app.edit') }}" href="{{ url('foodClasses/create') }}"> {{ trans('app.edit') }}</a>
-			              	<a class="btn btn-primary icon icon-trash tip-bottom btnDelete" title="{{ trans('app.delete') }}" data-delete-link="{{ route('foodClasses.destroy', $type->id) }}" data-toggle="modal" data-target="#modal-delete"> {{ trans('app.delete') }}</a>
-			              	<a class="btn btn-primary icon icon-reorder tip-bottom" title="{{ trans('app.details') }}" href="{{ url('foodClasses/' . $type->id) }}"> {{ trans('app.details') }}</a>
+			              	<a class="btn btn-primary icon icon-pencil tip-bottom" title="{{ trans('app.edit') }}" href="{{ route('foodClasses.edit', $type->id) }}"> {{ trans('app.edit') }}</a>
+			              	<a class="btn btn-danger icon icon-trash tip-bottom btnDelete" title="{{ trans('app.delete') }}" data-delete-link="{{ route('foodClasses.destroy', $type->id) }}" data-toggle="modal" data-target="#modal-delete"> {{ trans('app.delete') }}</a>
+			              	<a class="btn btn-success icon icon-reorder tip-bottom" title="{{ trans('app.details') }}" href="{{ route('foodClasses.show', $type->id) }}"> {{ trans('app.details') }}</a>
 			              </td>
 			            </tr>
 					@endforeach

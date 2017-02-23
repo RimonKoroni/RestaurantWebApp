@@ -23,4 +23,7 @@ return [
 	'details' => 'Details',
 	'close' => 'Close',
 	'deleteConfirmationTitle' => 'Delete Confirmation',
+	'updateClass' => 'Update class',
+	'welcome' => 'Welcome',
+	'logout' => 'Log Out'
 ];

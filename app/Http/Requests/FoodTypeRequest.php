@@ -27,7 +27,7 @@ class FoodTypeRequest extends Request
             'arabicName' => 'bail|required|min:2',
             'englishName' => 'bail|required|min:2',
             'turkishName' => 'bail|required|min:2',
-            'foodTypeImage' => 'bail|required|image|mimes:jpeg,png,jpg,JPG|max:2048'
+            'foodTypeImage' => 'bail|image|mimes:jpeg,png,jpg,JPG|max:2048'
         ];
     }
 

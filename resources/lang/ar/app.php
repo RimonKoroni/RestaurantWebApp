@@ -21,5 +21,8 @@ return [
 	'delete' => 'حذف',
 	'details' => 'تفاصيل',
 	'close' => 'إغلاق',
-	'deleteConfirmationTitle' => 'تأكيد عملية الحذف'
+	'deleteConfirmationTitle' => 'تأكيد عملية الحذف',
+	'updateClass' => 'تعديل صنف',
+	'welcome' => 'مرحبا',
+	'logout' => 'تسجيل خروج'
 ];

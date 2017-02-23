@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-	Create new class
+	Update class
 @stop
 
 @section('style')
@@ -12,9 +12,9 @@
 @section('content')
 	<!--breadcrumbs-->
   	<div id="content-header">
-    	<div id="breadcrumb"> <a href="{{ url('home') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>{{ trans('app.home') }}</a> <a href="{{ url('foodClasses') }}" title="Go to Food Classes" class="tip-bottom">{{ trans('app.foodClasses') }}</a> <a href="#" class="current">{{ trans('app.createNewClass') }}</a>  
+    	<div id="breadcrumb"> <a href="{{ url('home') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>{{ trans('app.home') }}</a> <a href="{{ url('foodClasses') }}" title="Go to Food Classes" class="tip-bottom">{{ trans('app.foodClasses') }}</a> <a href="#" class="current">{{ trans('app.updateClass') }}</a>  
     	</div>
-    	<h1>{{ trans('app.createNewClassTitle') }}</h1>
+    	<h1>{{ $type->getName(App::getLocale()) }}</h1>
   	</div>
 	<!--End-breadcrumbs-->
 
@@ -27,14 +27,14 @@
 			          <h5>{{ trans('app.classInfo') }}</h5>
 			        </div>
 			        <div class="widget-content nopadding">
-			        	{!! Form::open(['route' => 'foodClasses.store', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) !!}
+			        	{!! Form::open(['route' => ['foodClasses.update', $type->id], 'method' => 'put', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) !!}
 			        		<div class="control-group">
 				          		<div class="image-container">
-				          			<img id="previewImg" src="{{ asset('img/imagePlaceholder.png') }}" class="image-uploaded img-responsive" alt="">
+				          			<img id="previewImg" src="{{ $type->image != null ? asset('uploadedImages/' . $type->image) : asset('img/imagePlaceholder.png')}}" class="image-uploaded img-responsive" alt="">
 				          			<div class="overlay">
-								    	<div id="zoom-previewImg" class="lightbox_trigger btn-link" href="{{ asset('img/imagePlaceholder.png') }}">
+								    	<a id="zoom-previewImg" class="lightbox_trigger" href="{{ $type->image != null ? asset('uploadedImages/' . $type->image) : asset('img/imagePlaceholder.png')}}">
 								    		<span id="zoom"><i class="icon-search"></i></span>
-								    	</div>
+								    	</a>
 									</div>
 				            	</div>
 				            </div>
@@ -52,7 +52,7 @@
 				            <div class="control-group {{ $errors->has('arabicName') ? 'error' : ''}}">
 				            	{!! Form::label('arabicName', trans('foodType.arabicName') . ' :', ['class' => 'control-label']) !!}
 				              	<div class="controls">
-				              		{!! Form::text('arabicName', "", ['class' => 'span6', 'placeholder' => trans('foodType.arabicName')]) !!}
+				              		{!! Form::text('arabicName', $type->arabic_name, ['class' => 'span6', 'placeholder' => trans('foodType.arabicName')]) !!}
 				              		<span for='arabicName' class='help-inline'>
 				              			@if ($errors->has('arabicName'))
 				              				{{$errors->first('arabicName')}}
@@ -63,7 +63,7 @@
 				            <div class="control-group {{ $errors->has('englishName') ? 'error' : ''}}">
 				              	{!! Form::label('englishName', trans('foodType.englishName') . ' :', ['class' => 'control-label']) !!}
 				              	<div class="controls">
-				              		{!! Form::text('englishName', "", ['class' => 'span6', 'placeholder' => trans('foodType.englishName')]) !!}
+				              		{!! Form::text('englishName', $type->english_name, ['class' => 'span6', 'placeholder' => trans('foodType.englishName')]) !!}
 				              		<span for='englishName' class='help-inline'>
 				              			@if ($errors->has('englishName'))
 				              				{{$errors->first('englishName')}}
@@ -74,7 +74,7 @@
 				            <div class="control-group {{ $errors->has('turkishName') ? 'error' : ''}}">
 				              	{!! Form::label('turkishName', trans('foodType.turkishName') . ' :', ['class' => 'control-label']) !!}
 				              	<div class="controls">
-				              		{!! Form::text('turkishName', "", ['class' => 'span6', 'placeholder' => trans('foodType.turkishName')]) !!}
+				              		{!! Form::text('turkishName', $type->turkish_name, ['class' => 'span6', 'placeholder' => trans('foodType.turkishName')]) !!}
 				              		<span for='turkishName' class='help-inline'>
 				              			@if ($errors->has('turkishName'))
 				              				{{$errors->first('turkishName')}}
@@ -83,7 +83,7 @@
 				              	</div>
 				            </div>
 				            <div class="form-actions">
-				            	{!! Form::submit(trans('foodType.add'), ['class' => 'btn btn-success']) !!}
+				            	{!! Form::submit(trans('app.edit'), ['class' => 'btn btn-success']) !!}
 				            </div>
 			        	{!! Form::close() !!}
 			        </div>
