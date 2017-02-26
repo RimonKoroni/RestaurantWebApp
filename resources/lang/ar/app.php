@@ -24,5 +24,8 @@ return [
 	'deleteConfirmationTitle' => 'تأكيد عملية الحذف',
 	'updateClass' => 'تعديل صنف',
 	'welcome' => 'مرحبا',
-	'logout' => 'تسجيل خروج'
+	'logout' => 'تسجيل خروج',
+	'language' => 'اللغة',
+	'english' => 'الانجليزية',
+	'arabic' => 'العربية'
 ];

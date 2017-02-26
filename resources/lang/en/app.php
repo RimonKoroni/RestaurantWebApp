@@ -25,5 +25,8 @@ return [
 	'deleteConfirmationTitle' => 'Delete Confirmation',
 	'updateClass' => 'Update class',
 	'welcome' => 'Welcome',
-	'logout' => 'Log Out'
+	'logout' => 'Log Out',
+	'language' => 'Language',
+	'english' => 'English',
+	'arabic' => 'Arabic'
 ];

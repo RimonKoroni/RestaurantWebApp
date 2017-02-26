@@ -41,16 +41,17 @@
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <div class="checkbox" style="padding-left: 42px;">
+                    <div class="pull-left">
                         <label>
-                            <input type="checkbox" name="remember"> {{ trans('login.rememberMe') }}
+                            <input type="checkbox" name="remember" style="margin: 0 0 0;"> {{ trans('login.rememberMe') }}
                         </label>
                     </div>
+                    {{-- <label class="pull-right"><a href="{{ url('/password/reset') }}">{{ trans('login.forgotYourPassword') }}</a></span></label> --}}
                 </div>
             </div>
             <div class="form-actions">
-                <span class="pull-left"><a class="btn btn-info" href="{{ url('/password/reset') }}">{{ trans('login.forgotYourPassword') }}</a></span>
-                <span class="pull-right">{!! Form::submit(trans('login.login'), ['class' => 'btn btn-success fa fa-btn fa-sign-in']) !!}</span>
+                <span class="pull-right">{!! Form::submit(trans('login.login'), ['class' => 'btn btn-success']) !!}</span>
+                <span class="pull-left"><a class="btn btn-success" href="{{ url('/register') }}">{{ trans('login.register') }}</a></span>
             </div>
         </form>
     </div>

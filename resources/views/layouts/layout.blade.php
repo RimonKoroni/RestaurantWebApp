@@ -24,14 +24,27 @@
 	<!--close-Header-part--> 
 
 	<!--top-Header-menu-->
+	
 	<div id="user-nav" class="navbar navbar-inverse">
-	  <ul class="nav">
-	    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text"> {{ trans('app.welcome') . ' ' . Auth::user()->name}}</span><b class="caret"></b></a>
-	      <ul class="dropdown-menu">
-	        <li><a href="{{ url('/logout') }}"><i class="icon-key"></i> {{ trans('app.logout') }}</a></li>
-	      </ul>
-	    </li>
-	  </ul>
+		<form id="localeForm" action="{{ url('language') }}" method="post">
+			{{ csrf_field() }}
+			<input type="hidden" name="locale" />
+		  	<ul class="nav">
+		    	<li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text"> {{ trans('app.welcome') . ' ' . Auth::user()->name}}</span><b class="caret"></b></a>
+		      	<ul class="dropdown-menu">
+		        	<li><a href="{{ url('/logout') }}"><i class="icon-key"></i> {{ trans('app.logout') }}</a></li>
+		      	</ul>
+		    	</li>
+		    	<li class="dropdown"><a title="" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="icon  icon-globe"></i> <span class="text">{{ trans('app.language') }}</span><b class="caret"></b></a>
+		    	
+					<ul class="dropdown-menu" id="locale" name="locale">
+			        	<li data-locale="en"><a>{{ trans('app.english') }}</a></li>
+			        	<li data-locale="ar"><a>{{ trans('app.arabic') }}</a></li>
+			     	</ul>
+		     	
+		    	</li>
+		  	</ul>
+		</form>
 	</div>
 	<!--close-top-Header-menu-->
 
@@ -66,6 +79,16 @@
 	<script src="{{ asset('js/sidebarMenu.js') }}"></script> 
 
 	@yield('script')
-	
+	<script type="text/javascript">
+		
+		$('#locale li').click(function () {
+		    var locale = $(this).attr("data-locale");
+		    var $frm = $('#localeForm');
+		    //set the value of the hidden element
+		    $frm.find('input[name="locale"]').val(locale);
+		    //submit the form
+		    $frm.submit();
+		});
+	</script>
 </body>
 </html>

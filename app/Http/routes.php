@@ -27,10 +27,6 @@ Route::get('reports', function() {
     return view('pages.reports'); 
 });
 
-Route::get('changeLang/{lang}', function($lang) {
-    App::setlocale($lang);
-});
-
 
 Route::resource('foodClasses', 'FoodClassController');
 
@@ -39,3 +35,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'HomeController@index');
+
+Route::post('language', array(
+	'Middleware' => 'LanguageSwitcher',
+	'uses' => 'LanguageController@index'
+));
